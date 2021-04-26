@@ -17,7 +17,7 @@ public class MixinCactusBlock extends Block {
     public MixinCactusBlock (Settings settings){
         super(settings);
     }
-    @Inject(at = @At("HEAD"), method = "onEntityCollision", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "onEntityCollision", cancellable = true , remap= false)
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo info) {
         if (entity instanceof ItemEntity) info.cancel();
     }
